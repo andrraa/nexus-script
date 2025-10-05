@@ -65,6 +65,9 @@ cargo build --release
 #  INSTALL BINARY
 # ==============================
 echo "=== [5/6] Installing nexus-network ==="
+if [ -f "$BIN_PATH" ]; then
+    sudo cp "$BIN_PATH" "$BIN_PATH.bak_$(date +%Y%m%d%H%M%S)"
+fi
 sudo cp target/release/nexus-network "$BIN_PATH"
 sudo chmod +x "$BIN_PATH"
 
